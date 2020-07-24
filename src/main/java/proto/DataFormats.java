@@ -60,7 +60,7 @@ public final class DataFormats {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private SerializedData(
         com.google.protobuf.CodedInputStream input,
@@ -68,8 +68,6 @@ public final class DataFormats {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -79,8 +77,7 @@ public final class DataFormats {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
@@ -91,7 +88,7 @@ public final class DataFormats {
                 mutable_bitField0_ |= 0x00000001;
               }
               data_.add(
-                  input.readMessage(proto.DataFormats.Data.PARSER, extensionRegistry));
+                  input.readMessage(proto.DataFormats.Data.parser(), extensionRegistry));
               break;
             }
           }
@@ -105,7 +102,6 @@ public final class DataFormats {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           data_ = java.util.Collections.unmodifiableList(data_);
         }
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -171,7 +167,6 @@ public final class DataFormats {
       for (int i = 0; i < data_.size(); i++) {
         output.writeMessage(1, data_.get(i));
       }
-      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -183,7 +178,6 @@ public final class DataFormats {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, data_.get(i));
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -202,7 +196,6 @@ public final class DataFormats {
       boolean result = true;
       result = result && getDataList()
           .equals(other.getDataList());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -441,7 +434,6 @@ public final class DataFormats {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -710,12 +702,12 @@ public final class DataFormats {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return this;
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -732,7 +724,7 @@ public final class DataFormats {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<SerializedData>
+    private static final com.google.protobuf.Parser<SerializedData>
         PARSER = new com.google.protobuf.AbstractParser<SerializedData>() {
       public SerializedData parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -762,28 +754,28 @@ public final class DataFormats {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .formats.Position pose = 1;</code>
+     * <code>.formats.Position pose = 1;</code>
      */
     boolean hasPose();
     /**
-     * <code>optional .formats.Position pose = 1;</code>
+     * <code>.formats.Position pose = 1;</code>
      */
     proto.DataFormats.Position getPose();
     /**
-     * <code>optional .formats.Position pose = 1;</code>
+     * <code>.formats.Position pose = 1;</code>
      */
     proto.DataFormats.PositionOrBuilder getPoseOrBuilder();
 
     /**
-     * <code>optional .formats.Heading head = 2;</code>
+     * <code>.formats.Heading head = 2;</code>
      */
     boolean hasHead();
     /**
-     * <code>optional .formats.Heading head = 2;</code>
+     * <code>.formats.Heading head = 2;</code>
      */
     proto.DataFormats.Heading getHead();
     /**
-     * <code>optional .formats.Heading head = 2;</code>
+     * <code>.formats.Heading head = 2;</code>
      */
     proto.DataFormats.HeadingOrBuilder getHeadOrBuilder();
   }
@@ -804,7 +796,7 @@ public final class DataFormats {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private Data(
         com.google.protobuf.CodedInputStream input,
@@ -812,8 +804,6 @@ public final class DataFormats {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -823,36 +813,35 @@ public final class DataFormats {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 10: {
               proto.DataFormats.Position.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (pose_ != null) {
                 subBuilder = pose_.toBuilder();
               }
-              pose_ = input.readMessage(proto.DataFormats.Position.PARSER, extensionRegistry);
+              pose_ = input.readMessage(proto.DataFormats.Position.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(pose_);
                 pose_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000001;
+
               break;
             }
             case 18: {
               proto.DataFormats.Heading.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (head_ != null) {
                 subBuilder = head_.toBuilder();
               }
-              head_ = input.readMessage(proto.DataFormats.Heading.PARSER, extensionRegistry);
+              head_ = input.readMessage(proto.DataFormats.Heading.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(head_);
                 head_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+
               break;
             }
           }
@@ -863,7 +852,6 @@ public final class DataFormats {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -879,47 +867,46 @@ public final class DataFormats {
               proto.DataFormats.Data.class, proto.DataFormats.Data.Builder.class);
     }
 
-    private int bitField0_;
     public static final int POSE_FIELD_NUMBER = 1;
     private proto.DataFormats.Position pose_;
     /**
-     * <code>optional .formats.Position pose = 1;</code>
+     * <code>.formats.Position pose = 1;</code>
      */
     public boolean hasPose() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return pose_ != null;
     }
     /**
-     * <code>optional .formats.Position pose = 1;</code>
+     * <code>.formats.Position pose = 1;</code>
      */
     public proto.DataFormats.Position getPose() {
       return pose_ == null ? proto.DataFormats.Position.getDefaultInstance() : pose_;
     }
     /**
-     * <code>optional .formats.Position pose = 1;</code>
+     * <code>.formats.Position pose = 1;</code>
      */
     public proto.DataFormats.PositionOrBuilder getPoseOrBuilder() {
-      return pose_ == null ? proto.DataFormats.Position.getDefaultInstance() : pose_;
+      return getPose();
     }
 
     public static final int HEAD_FIELD_NUMBER = 2;
     private proto.DataFormats.Heading head_;
     /**
-     * <code>optional .formats.Heading head = 2;</code>
+     * <code>.formats.Heading head = 2;</code>
      */
     public boolean hasHead() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return head_ != null;
     }
     /**
-     * <code>optional .formats.Heading head = 2;</code>
+     * <code>.formats.Heading head = 2;</code>
      */
     public proto.DataFormats.Heading getHead() {
       return head_ == null ? proto.DataFormats.Heading.getDefaultInstance() : head_;
     }
     /**
-     * <code>optional .formats.Heading head = 2;</code>
+     * <code>.formats.Heading head = 2;</code>
      */
     public proto.DataFormats.HeadingOrBuilder getHeadOrBuilder() {
-      return head_ == null ? proto.DataFormats.Heading.getDefaultInstance() : head_;
+      return getHead();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -934,13 +921,12 @@ public final class DataFormats {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (pose_ != null) {
         output.writeMessage(1, getPose());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (head_ != null) {
         output.writeMessage(2, getHead());
       }
-      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -948,15 +934,14 @@ public final class DataFormats {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (pose_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getPose());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (head_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getHead());
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -983,7 +968,6 @@ public final class DataFormats {
         result = result && getHead()
             .equals(other.getHead());
       }
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -1116,8 +1100,6 @@ public final class DataFormats {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getPoseFieldBuilder();
-          getHeadFieldBuilder();
         }
       }
       public Builder clear() {
@@ -1125,15 +1107,15 @@ public final class DataFormats {
         if (poseBuilder_ == null) {
           pose_ = null;
         } else {
-          poseBuilder_.clear();
+          pose_ = null;
+          poseBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (headBuilder_ == null) {
           head_ = null;
         } else {
-          headBuilder_.clear();
+          head_ = null;
+          headBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1156,25 +1138,16 @@ public final class DataFormats {
 
       public proto.DataFormats.Data buildPartial() {
         proto.DataFormats.Data result = new proto.DataFormats.Data(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         if (poseBuilder_ == null) {
           result.pose_ = pose_;
         } else {
           result.pose_ = poseBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
         }
         if (headBuilder_ == null) {
           result.head_ = head_;
         } else {
           result.head_ = headBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1222,7 +1195,6 @@ public final class DataFormats {
         if (other.hasHead()) {
           mergeHead(other.getHead());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1248,19 +1220,18 @@ public final class DataFormats {
         }
         return this;
       }
-      private int bitField0_;
 
       private proto.DataFormats.Position pose_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           proto.DataFormats.Position, proto.DataFormats.Position.Builder, proto.DataFormats.PositionOrBuilder> poseBuilder_;
       /**
-       * <code>optional .formats.Position pose = 1;</code>
+       * <code>.formats.Position pose = 1;</code>
        */
       public boolean hasPose() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return poseBuilder_ != null || pose_ != null;
       }
       /**
-       * <code>optional .formats.Position pose = 1;</code>
+       * <code>.formats.Position pose = 1;</code>
        */
       public proto.DataFormats.Position getPose() {
         if (poseBuilder_ == null) {
@@ -1270,7 +1241,7 @@ public final class DataFormats {
         }
       }
       /**
-       * <code>optional .formats.Position pose = 1;</code>
+       * <code>.formats.Position pose = 1;</code>
        */
       public Builder setPose(proto.DataFormats.Position value) {
         if (poseBuilder_ == null) {
@@ -1282,11 +1253,11 @@ public final class DataFormats {
         } else {
           poseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
-       * <code>optional .formats.Position pose = 1;</code>
+       * <code>.formats.Position pose = 1;</code>
        */
       public Builder setPose(
           proto.DataFormats.Position.Builder builderForValue) {
@@ -1296,17 +1267,15 @@ public final class DataFormats {
         } else {
           poseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
-       * <code>optional .formats.Position pose = 1;</code>
+       * <code>.formats.Position pose = 1;</code>
        */
       public Builder mergePose(proto.DataFormats.Position value) {
         if (poseBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              pose_ != null &&
-              pose_ != proto.DataFormats.Position.getDefaultInstance()) {
+          if (pose_ != null) {
             pose_ =
               proto.DataFormats.Position.newBuilder(pose_).mergeFrom(value).buildPartial();
           } else {
@@ -1316,32 +1285,33 @@ public final class DataFormats {
         } else {
           poseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
-       * <code>optional .formats.Position pose = 1;</code>
+       * <code>.formats.Position pose = 1;</code>
        */
       public Builder clearPose() {
         if (poseBuilder_ == null) {
           pose_ = null;
           onChanged();
         } else {
-          poseBuilder_.clear();
+          pose_ = null;
+          poseBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
       /**
-       * <code>optional .formats.Position pose = 1;</code>
+       * <code>.formats.Position pose = 1;</code>
        */
       public proto.DataFormats.Position.Builder getPoseBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getPoseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .formats.Position pose = 1;</code>
+       * <code>.formats.Position pose = 1;</code>
        */
       public proto.DataFormats.PositionOrBuilder getPoseOrBuilder() {
         if (poseBuilder_ != null) {
@@ -1352,7 +1322,7 @@ public final class DataFormats {
         }
       }
       /**
-       * <code>optional .formats.Position pose = 1;</code>
+       * <code>.formats.Position pose = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           proto.DataFormats.Position, proto.DataFormats.Position.Builder, proto.DataFormats.PositionOrBuilder> 
@@ -1372,13 +1342,13 @@ public final class DataFormats {
       private com.google.protobuf.SingleFieldBuilderV3<
           proto.DataFormats.Heading, proto.DataFormats.Heading.Builder, proto.DataFormats.HeadingOrBuilder> headBuilder_;
       /**
-       * <code>optional .formats.Heading head = 2;</code>
+       * <code>.formats.Heading head = 2;</code>
        */
       public boolean hasHead() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return headBuilder_ != null || head_ != null;
       }
       /**
-       * <code>optional .formats.Heading head = 2;</code>
+       * <code>.formats.Heading head = 2;</code>
        */
       public proto.DataFormats.Heading getHead() {
         if (headBuilder_ == null) {
@@ -1388,7 +1358,7 @@ public final class DataFormats {
         }
       }
       /**
-       * <code>optional .formats.Heading head = 2;</code>
+       * <code>.formats.Heading head = 2;</code>
        */
       public Builder setHead(proto.DataFormats.Heading value) {
         if (headBuilder_ == null) {
@@ -1400,11 +1370,11 @@ public final class DataFormats {
         } else {
           headBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
-       * <code>optional .formats.Heading head = 2;</code>
+       * <code>.formats.Heading head = 2;</code>
        */
       public Builder setHead(
           proto.DataFormats.Heading.Builder builderForValue) {
@@ -1414,17 +1384,15 @@ public final class DataFormats {
         } else {
           headBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
-       * <code>optional .formats.Heading head = 2;</code>
+       * <code>.formats.Heading head = 2;</code>
        */
       public Builder mergeHead(proto.DataFormats.Heading value) {
         if (headBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              head_ != null &&
-              head_ != proto.DataFormats.Heading.getDefaultInstance()) {
+          if (head_ != null) {
             head_ =
               proto.DataFormats.Heading.newBuilder(head_).mergeFrom(value).buildPartial();
           } else {
@@ -1434,32 +1402,33 @@ public final class DataFormats {
         } else {
           headBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
-       * <code>optional .formats.Heading head = 2;</code>
+       * <code>.formats.Heading head = 2;</code>
        */
       public Builder clearHead() {
         if (headBuilder_ == null) {
           head_ = null;
           onChanged();
         } else {
-          headBuilder_.clear();
+          head_ = null;
+          headBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         return this;
       }
       /**
-       * <code>optional .formats.Heading head = 2;</code>
+       * <code>.formats.Heading head = 2;</code>
        */
       public proto.DataFormats.Heading.Builder getHeadBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getHeadFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .formats.Heading head = 2;</code>
+       * <code>.formats.Heading head = 2;</code>
        */
       public proto.DataFormats.HeadingOrBuilder getHeadOrBuilder() {
         if (headBuilder_ != null) {
@@ -1470,7 +1439,7 @@ public final class DataFormats {
         }
       }
       /**
-       * <code>optional .formats.Heading head = 2;</code>
+       * <code>.formats.Heading head = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           proto.DataFormats.Heading, proto.DataFormats.Heading.Builder, proto.DataFormats.HeadingOrBuilder> 
@@ -1487,12 +1456,12 @@ public final class DataFormats {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return this;
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -1509,7 +1478,7 @@ public final class DataFormats {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Data>
+    private static final com.google.protobuf.Parser<Data>
         PARSER = new com.google.protobuf.AbstractParser<Data>() {
       public Data parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -1539,29 +1508,17 @@ public final class DataFormats {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional float lat = 1;</code>
-     */
-    boolean hasLat();
-    /**
-     * <code>optional float lat = 1;</code>
+     * <code>float lat = 1;</code>
      */
     float getLat();
 
     /**
-     * <code>optional float long = 2;</code>
-     */
-    boolean hasLong();
-    /**
-     * <code>optional float long = 2;</code>
+     * <code>float long = 2;</code>
      */
     float getLong();
 
     /**
-     * <code>optional float alt = 3;</code>
-     */
-    boolean hasAlt();
-    /**
-     * <code>optional float alt = 3;</code>
+     * <code>float alt = 3;</code>
      */
     float getAlt();
   }
@@ -1585,7 +1542,7 @@ public final class DataFormats {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private Position(
         com.google.protobuf.CodedInputStream input,
@@ -1593,8 +1550,6 @@ public final class DataFormats {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1604,24 +1559,23 @@ public final class DataFormats {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 13: {
-              bitField0_ |= 0x00000001;
+
               lat_ = input.readFloat();
               break;
             }
             case 21: {
-              bitField0_ |= 0x00000002;
+
               long_ = input.readFloat();
               break;
             }
             case 29: {
-              bitField0_ |= 0x00000004;
+
               alt_ = input.readFloat();
               break;
             }
@@ -1633,7 +1587,6 @@ public final class DataFormats {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1649,17 +1602,10 @@ public final class DataFormats {
               proto.DataFormats.Position.class, proto.DataFormats.Position.Builder.class);
     }
 
-    private int bitField0_;
     public static final int LAT_FIELD_NUMBER = 1;
     private float lat_;
     /**
-     * <code>optional float lat = 1;</code>
-     */
-    public boolean hasLat() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional float lat = 1;</code>
+     * <code>float lat = 1;</code>
      */
     public float getLat() {
       return lat_;
@@ -1668,13 +1614,7 @@ public final class DataFormats {
     public static final int LONG_FIELD_NUMBER = 2;
     private float long_;
     /**
-     * <code>optional float long = 2;</code>
-     */
-    public boolean hasLong() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional float long = 2;</code>
+     * <code>float long = 2;</code>
      */
     public float getLong() {
       return long_;
@@ -1683,13 +1623,7 @@ public final class DataFormats {
     public static final int ALT_FIELD_NUMBER = 3;
     private float alt_;
     /**
-     * <code>optional float alt = 3;</code>
-     */
-    public boolean hasAlt() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional float alt = 3;</code>
+     * <code>float alt = 3;</code>
      */
     public float getAlt() {
       return alt_;
@@ -1707,16 +1641,15 @@ public final class DataFormats {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (lat_ != 0F) {
         output.writeFloat(1, lat_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (long_ != 0F) {
         output.writeFloat(2, long_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (alt_ != 0F) {
         output.writeFloat(3, alt_);
       }
-      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -1724,19 +1657,18 @@ public final class DataFormats {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (lat_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(1, lat_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (long_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(2, long_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (alt_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(3, alt_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1753,28 +1685,18 @@ public final class DataFormats {
       proto.DataFormats.Position other = (proto.DataFormats.Position) obj;
 
       boolean result = true;
-      result = result && (hasLat() == other.hasLat());
-      if (hasLat()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getLat())
-            == java.lang.Float.floatToIntBits(
-                other.getLat()));
-      }
-      result = result && (hasLong() == other.hasLong());
-      if (hasLong()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getLong())
-            == java.lang.Float.floatToIntBits(
-                other.getLong()));
-      }
-      result = result && (hasAlt() == other.hasAlt());
-      if (hasAlt()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getAlt())
-            == java.lang.Float.floatToIntBits(
-                other.getAlt()));
-      }
-      result = result && unknownFields.equals(other.unknownFields);
+      result = result && (
+          java.lang.Float.floatToIntBits(getLat())
+          == java.lang.Float.floatToIntBits(
+              other.getLat()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getLong())
+          == java.lang.Float.floatToIntBits(
+              other.getLong()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getAlt())
+          == java.lang.Float.floatToIntBits(
+              other.getAlt()));
       return result;
     }
 
@@ -1785,21 +1707,15 @@ public final class DataFormats {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasLat()) {
-        hash = (37 * hash) + LAT_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getLat());
-      }
-      if (hasLong()) {
-        hash = (37 * hash) + LONG_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getLong());
-      }
-      if (hasAlt()) {
-        hash = (37 * hash) + ALT_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getAlt());
-      }
+      hash = (37 * hash) + LAT_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getLat());
+      hash = (37 * hash) + LONG_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getLong());
+      hash = (37 * hash) + ALT_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getAlt());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1919,11 +1835,11 @@ public final class DataFormats {
       public Builder clear() {
         super.clear();
         lat_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         long_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         alt_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000004);
+
         return this;
       }
 
@@ -1946,21 +1862,9 @@ public final class DataFormats {
 
       public proto.DataFormats.Position buildPartial() {
         proto.DataFormats.Position result = new proto.DataFormats.Position(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.lat_ = lat_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
         result.long_ = long_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         result.alt_ = alt_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2002,16 +1906,15 @@ public final class DataFormats {
 
       public Builder mergeFrom(proto.DataFormats.Position other) {
         if (other == proto.DataFormats.Position.getDefaultInstance()) return this;
-        if (other.hasLat()) {
+        if (other.getLat() != 0F) {
           setLat(other.getLat());
         }
-        if (other.hasLong()) {
+        if (other.getLong() != 0F) {
           setLong(other.getLong());
         }
-        if (other.hasAlt()) {
+        if (other.getAlt() != 0F) {
           setAlt(other.getAlt());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2037,35 +1940,28 @@ public final class DataFormats {
         }
         return this;
       }
-      private int bitField0_;
 
       private float lat_ ;
       /**
-       * <code>optional float lat = 1;</code>
-       */
-      public boolean hasLat() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional float lat = 1;</code>
+       * <code>float lat = 1;</code>
        */
       public float getLat() {
         return lat_;
       }
       /**
-       * <code>optional float lat = 1;</code>
+       * <code>float lat = 1;</code>
        */
       public Builder setLat(float value) {
-        bitField0_ |= 0x00000001;
+        
         lat_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional float lat = 1;</code>
+       * <code>float lat = 1;</code>
        */
       public Builder clearLat() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         lat_ = 0F;
         onChanged();
         return this;
@@ -2073,31 +1969,25 @@ public final class DataFormats {
 
       private float long_ ;
       /**
-       * <code>optional float long = 2;</code>
-       */
-      public boolean hasLong() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional float long = 2;</code>
+       * <code>float long = 2;</code>
        */
       public float getLong() {
         return long_;
       }
       /**
-       * <code>optional float long = 2;</code>
+       * <code>float long = 2;</code>
        */
       public Builder setLong(float value) {
-        bitField0_ |= 0x00000002;
+        
         long_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional float long = 2;</code>
+       * <code>float long = 2;</code>
        */
       public Builder clearLong() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         long_ = 0F;
         onChanged();
         return this;
@@ -2105,43 +1995,37 @@ public final class DataFormats {
 
       private float alt_ ;
       /**
-       * <code>optional float alt = 3;</code>
-       */
-      public boolean hasAlt() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional float alt = 3;</code>
+       * <code>float alt = 3;</code>
        */
       public float getAlt() {
         return alt_;
       }
       /**
-       * <code>optional float alt = 3;</code>
+       * <code>float alt = 3;</code>
        */
       public Builder setAlt(float value) {
-        bitField0_ |= 0x00000004;
+        
         alt_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional float alt = 3;</code>
+       * <code>float alt = 3;</code>
        */
       public Builder clearAlt() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         alt_ = 0F;
         onChanged();
         return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return this;
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -2158,7 +2042,7 @@ public final class DataFormats {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Position>
+    private static final com.google.protobuf.Parser<Position>
         PARSER = new com.google.protobuf.AbstractParser<Position>() {
       public Position parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -2188,29 +2072,17 @@ public final class DataFormats {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional float roll_deg = 1;</code>
-     */
-    boolean hasRollDeg();
-    /**
-     * <code>optional float roll_deg = 1;</code>
+     * <code>float roll_deg = 1;</code>
      */
     float getRollDeg();
 
     /**
-     * <code>optional float pitch_deg = 2;</code>
-     */
-    boolean hasPitchDeg();
-    /**
-     * <code>optional float pitch_deg = 2;</code>
+     * <code>float pitch_deg = 2;</code>
      */
     float getPitchDeg();
 
     /**
-     * <code>optional float yaw_deg = 3;</code>
-     */
-    boolean hasYawDeg();
-    /**
-     * <code>optional float yaw_deg = 3;</code>
+     * <code>float yaw_deg = 3;</code>
      */
     float getYawDeg();
   }
@@ -2234,7 +2106,7 @@ public final class DataFormats {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private Heading(
         com.google.protobuf.CodedInputStream input,
@@ -2242,8 +2114,6 @@ public final class DataFormats {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2253,24 +2123,23 @@ public final class DataFormats {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 13: {
-              bitField0_ |= 0x00000001;
+
               rollDeg_ = input.readFloat();
               break;
             }
             case 21: {
-              bitField0_ |= 0x00000002;
+
               pitchDeg_ = input.readFloat();
               break;
             }
             case 29: {
-              bitField0_ |= 0x00000004;
+
               yawDeg_ = input.readFloat();
               break;
             }
@@ -2282,7 +2151,6 @@ public final class DataFormats {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -2298,17 +2166,10 @@ public final class DataFormats {
               proto.DataFormats.Heading.class, proto.DataFormats.Heading.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ROLL_DEG_FIELD_NUMBER = 1;
     private float rollDeg_;
     /**
-     * <code>optional float roll_deg = 1;</code>
-     */
-    public boolean hasRollDeg() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional float roll_deg = 1;</code>
+     * <code>float roll_deg = 1;</code>
      */
     public float getRollDeg() {
       return rollDeg_;
@@ -2317,13 +2178,7 @@ public final class DataFormats {
     public static final int PITCH_DEG_FIELD_NUMBER = 2;
     private float pitchDeg_;
     /**
-     * <code>optional float pitch_deg = 2;</code>
-     */
-    public boolean hasPitchDeg() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional float pitch_deg = 2;</code>
+     * <code>float pitch_deg = 2;</code>
      */
     public float getPitchDeg() {
       return pitchDeg_;
@@ -2332,13 +2187,7 @@ public final class DataFormats {
     public static final int YAW_DEG_FIELD_NUMBER = 3;
     private float yawDeg_;
     /**
-     * <code>optional float yaw_deg = 3;</code>
-     */
-    public boolean hasYawDeg() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional float yaw_deg = 3;</code>
+     * <code>float yaw_deg = 3;</code>
      */
     public float getYawDeg() {
       return yawDeg_;
@@ -2356,16 +2205,15 @@ public final class DataFormats {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (rollDeg_ != 0F) {
         output.writeFloat(1, rollDeg_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (pitchDeg_ != 0F) {
         output.writeFloat(2, pitchDeg_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (yawDeg_ != 0F) {
         output.writeFloat(3, yawDeg_);
       }
-      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -2373,19 +2221,18 @@ public final class DataFormats {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (rollDeg_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(1, rollDeg_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (pitchDeg_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(2, pitchDeg_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (yawDeg_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(3, yawDeg_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2402,28 +2249,18 @@ public final class DataFormats {
       proto.DataFormats.Heading other = (proto.DataFormats.Heading) obj;
 
       boolean result = true;
-      result = result && (hasRollDeg() == other.hasRollDeg());
-      if (hasRollDeg()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getRollDeg())
-            == java.lang.Float.floatToIntBits(
-                other.getRollDeg()));
-      }
-      result = result && (hasPitchDeg() == other.hasPitchDeg());
-      if (hasPitchDeg()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getPitchDeg())
-            == java.lang.Float.floatToIntBits(
-                other.getPitchDeg()));
-      }
-      result = result && (hasYawDeg() == other.hasYawDeg());
-      if (hasYawDeg()) {
-        result = result && (
-            java.lang.Float.floatToIntBits(getYawDeg())
-            == java.lang.Float.floatToIntBits(
-                other.getYawDeg()));
-      }
-      result = result && unknownFields.equals(other.unknownFields);
+      result = result && (
+          java.lang.Float.floatToIntBits(getRollDeg())
+          == java.lang.Float.floatToIntBits(
+              other.getRollDeg()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getPitchDeg())
+          == java.lang.Float.floatToIntBits(
+              other.getPitchDeg()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getYawDeg())
+          == java.lang.Float.floatToIntBits(
+              other.getYawDeg()));
       return result;
     }
 
@@ -2434,21 +2271,15 @@ public final class DataFormats {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasRollDeg()) {
-        hash = (37 * hash) + ROLL_DEG_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getRollDeg());
-      }
-      if (hasPitchDeg()) {
-        hash = (37 * hash) + PITCH_DEG_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getPitchDeg());
-      }
-      if (hasYawDeg()) {
-        hash = (37 * hash) + YAW_DEG_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getYawDeg());
-      }
+      hash = (37 * hash) + ROLL_DEG_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getRollDeg());
+      hash = (37 * hash) + PITCH_DEG_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getPitchDeg());
+      hash = (37 * hash) + YAW_DEG_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getYawDeg());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2568,11 +2399,11 @@ public final class DataFormats {
       public Builder clear() {
         super.clear();
         rollDeg_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         pitchDeg_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         yawDeg_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000004);
+
         return this;
       }
 
@@ -2595,21 +2426,9 @@ public final class DataFormats {
 
       public proto.DataFormats.Heading buildPartial() {
         proto.DataFormats.Heading result = new proto.DataFormats.Heading(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.rollDeg_ = rollDeg_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
         result.pitchDeg_ = pitchDeg_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         result.yawDeg_ = yawDeg_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2651,16 +2470,15 @@ public final class DataFormats {
 
       public Builder mergeFrom(proto.DataFormats.Heading other) {
         if (other == proto.DataFormats.Heading.getDefaultInstance()) return this;
-        if (other.hasRollDeg()) {
+        if (other.getRollDeg() != 0F) {
           setRollDeg(other.getRollDeg());
         }
-        if (other.hasPitchDeg()) {
+        if (other.getPitchDeg() != 0F) {
           setPitchDeg(other.getPitchDeg());
         }
-        if (other.hasYawDeg()) {
+        if (other.getYawDeg() != 0F) {
           setYawDeg(other.getYawDeg());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2686,35 +2504,28 @@ public final class DataFormats {
         }
         return this;
       }
-      private int bitField0_;
 
       private float rollDeg_ ;
       /**
-       * <code>optional float roll_deg = 1;</code>
-       */
-      public boolean hasRollDeg() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional float roll_deg = 1;</code>
+       * <code>float roll_deg = 1;</code>
        */
       public float getRollDeg() {
         return rollDeg_;
       }
       /**
-       * <code>optional float roll_deg = 1;</code>
+       * <code>float roll_deg = 1;</code>
        */
       public Builder setRollDeg(float value) {
-        bitField0_ |= 0x00000001;
+        
         rollDeg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional float roll_deg = 1;</code>
+       * <code>float roll_deg = 1;</code>
        */
       public Builder clearRollDeg() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         rollDeg_ = 0F;
         onChanged();
         return this;
@@ -2722,31 +2533,25 @@ public final class DataFormats {
 
       private float pitchDeg_ ;
       /**
-       * <code>optional float pitch_deg = 2;</code>
-       */
-      public boolean hasPitchDeg() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional float pitch_deg = 2;</code>
+       * <code>float pitch_deg = 2;</code>
        */
       public float getPitchDeg() {
         return pitchDeg_;
       }
       /**
-       * <code>optional float pitch_deg = 2;</code>
+       * <code>float pitch_deg = 2;</code>
        */
       public Builder setPitchDeg(float value) {
-        bitField0_ |= 0x00000002;
+        
         pitchDeg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional float pitch_deg = 2;</code>
+       * <code>float pitch_deg = 2;</code>
        */
       public Builder clearPitchDeg() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         pitchDeg_ = 0F;
         onChanged();
         return this;
@@ -2754,43 +2559,37 @@ public final class DataFormats {
 
       private float yawDeg_ ;
       /**
-       * <code>optional float yaw_deg = 3;</code>
-       */
-      public boolean hasYawDeg() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional float yaw_deg = 3;</code>
+       * <code>float yaw_deg = 3;</code>
        */
       public float getYawDeg() {
         return yawDeg_;
       }
       /**
-       * <code>optional float yaw_deg = 3;</code>
+       * <code>float yaw_deg = 3;</code>
        */
       public Builder setYawDeg(float value) {
-        bitField0_ |= 0x00000004;
+        
         yawDeg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional float yaw_deg = 3;</code>
+       * <code>float yaw_deg = 3;</code>
        */
       public Builder clearYawDeg() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         yawDeg_ = 0F;
         onChanged();
         return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return this;
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -2807,7 +2606,7 @@ public final class DataFormats {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Heading>
+    private static final com.google.protobuf.Parser<Heading>
         PARSER = new com.google.protobuf.AbstractParser<Heading>() {
       public Heading parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -2868,7 +2667,7 @@ public final class DataFormats {
       "lat\030\001 \001(\002\022\014\n\004long\030\002 \001(\002\022\013\n\003alt\030\003 \001(\002\"?\n\007" +
       "Heading\022\020\n\010roll_deg\030\001 \001(\002\022\021\n\tpitch_deg\030\002" +
       " \001(\002\022\017\n\007yaw_deg\030\003 \001(\002B\024\n\005protoB\013DataForm" +
-      "ats"
+      "atsb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

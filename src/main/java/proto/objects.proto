@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 package formats;
 option java_package = "proto";
@@ -6,18 +6,18 @@ option java_outer_classname = "DataFormats";
 
 message SerializedData { repeated Data data = 1; }
 message Data {
-  optional Position pose = 1;
-  optional Heading head = 2;
+  Position pose = 1;
+  Heading head = 2;
 }
 
 message Position {
-  optional float lat = 1;
-  optional float long = 2;
-  optional float alt = 3;
+  float lat = 1;
+  float long = 2;
+  float alt = 3;
 }
 
 message Heading {
-  optional float roll_deg = 1;
-  optional float pitch_deg = 2;
-  optional float yaw_deg = 3;
+  float roll_deg = 1;
+  float pitch_deg = 2;
+  float yaw_deg = 3;
 }
