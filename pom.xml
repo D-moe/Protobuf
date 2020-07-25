@@ -15,11 +15,23 @@
   </properties>
 
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+    <!-- Provides the core protobuf library features -->
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
-      <version>3.12.1</version>
+      <version>4.0.0-rc-2</version>
+    </dependency>
+    <!-- Provides JSON converter -->
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java-util</artifactId>
+      <version>4.0.0-rc-2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.googlecode.protobuf-java-format</groupId>
+      <artifactId>protobuf-java-format</artifactId>
+      <version>1.4</version>
     </dependency>
   </dependencies>
   <build>
